@@ -18,27 +18,25 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-@Entity // @Entity transforma a classe em tabela através do JPA
-@Table(name = "tb_cursos") // @Table define o nome para a tabela, caso não coloque o table ele criará com
-							// um nome genérico
+@Entity 
+@Table(name = "tb_cursos") 
+							
 public class Curso {
 
-	// Variáveis que se transformarão em colunas no MySQL
-	@Id // Anotação para indicar a PK - primary Key
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // Anotação para regra de auto increment no ID
-	private Long id; // o Long se transformará em BIGINT no MySQL
+	
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	private Long id; 
 
-	@NotBlank // Anotação para não nulo e não vazio (ou seja, não aceita nem mesmo apenas
-				// espaços, diferente do NotNull
-	@Size(min = 3, max = 100) // Anotação para o VARCHAR, define o tamanho necessário, minimo e máximo da
-								// String
+	@NotBlank 		
+	@Size(min = 3, max = 100)
 	private String titulo;
 
 	@NotBlank
 	@Size(min = 10, max = 1000)
 	private String descricao;
 
-	@UpdateTimestamp // Toda postagem criada pegara automaticamente a data e hora atual do usuário
+	@UpdateTimestamp
 	private LocalDate data;
 
 	private boolean disponibilidade = true;
@@ -50,8 +48,7 @@ public class Curso {
 
 	@ManyToOne
 	@JsonIgnoreProperties("curso")
-	private Categoria tema; // Foreign Key, do tipo "Tema" que é a outra tabela, pegará automaticamente o PK
-							// id
+	private Categoria categoria;
 
 	@ManyToOne
 	@JsonIgnoreProperties("curso")
@@ -90,12 +87,12 @@ public class Curso {
 		this.data = data;
 	}
 
-	public Categoria getTema() {
-		return tema;
+	public Categoria getCategoria() {
+		return categoria;
 	}
 
-	public void setTema(Categoria tema) {
-		this.tema = tema;
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 
 	public Usuario getUsuario() {
