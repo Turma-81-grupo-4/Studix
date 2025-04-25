@@ -29,9 +29,7 @@ import jakarta.validation.Valid;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class CursoController {
 
-	@Autowired // Injeção de dependências, injetou a interface Repository com todos seus
-				// poderes
-	// dentro da classe Controller
+	@Autowired
 	private CursoRepository cursoRepository;
 
 	@Autowired
@@ -39,39 +37,38 @@ public class CursoController {
 
 	@GetMapping
 	public ResponseEntity<List<Curso>> getAll() {
-		return ResponseEntity.ok(postagemRepository.findAll());
+		return ResponseEntity.ok(cursoRepository.findAll());
 	}
 
-	@GetMapping("/{id}") // entre chaves {} significa que pegará o valor que será inserido no id e
-							// passará na @PathVariable
+	@GetMapping("/{id}")
 	public ResponseEntity<Curso> getById(@PathVariable Long id) {
-		return postagemRepository.findById(id).map(resposta -> ResponseEntity.ok(resposta))
+		return cursoRepository.findById(id).map(resposta -> ResponseEntity.ok(resposta))
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
 
 	@GetMapping("/titulo/{titulo}")
 	public ResponseEntity<List<Curso>> getByTitulo(@PathVariable String titulo) {
-		return ResponseEntity.ok(postagemRepository.findAllByTituloContainingIgnoreCase(titulo));
+		return ResponseEntity.ok(cursoRepository.findAllByTituloContainingIgnoreCase(titulo));
 	}
 
-	@PostMapping // verbo POST - Enviar, "cadastrar"
-	public ResponseEntity<Curso> post(@Valid @RequestBody Curso postagem) {
-		if (temaRepository.existsById(postagem.getTema().getId())) {
-			return ResponseEntity.status(HttpStatus.CREATED).body(postagemRepository.save(postagem));
+	@PostMapping
+	public ResponseEntity<Curso> post(@Valid @RequestBody Curso curso) {
+		if (categoriaRepository.existsById(curso.getCategoria().getId())) {
+			return ResponseEntity.status(HttpStatus.CREATED).body(cursoRepository.save(curso));
 		}
 
-		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Tema não existe!", null);
+		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Categoria não existe!", null);
 	}
 
-	@PutMapping // Verb PUT - atualizar
-	public ResponseEntity<Curso> put(@Valid @RequestBody Curso postagem) {
-		if (postagemRepository.existsById(postagem.getId())) {
+	@PutMapping
+	public ResponseEntity<Curso> put(@Valid @RequestBody Curso curso) {
+		if (cursoRepository.existsById(curso.getId())) {
 
-			if (temaRepository.existsById(postagem.getTema().getId())) {
-				return ResponseEntity.status(HttpStatus.OK).body(postagemRepository.save(postagem));
+			if (categoriaRepository.existsById(curso.getCategoria().getId())) {
+				return ResponseEntity.status(HttpStatus.OK).body(cursoRepository.save(curso));
 			}
 
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Tema não existe", null);
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Categoria não existe", null);
 
 		}
 
@@ -81,12 +78,12 @@ public class CursoController {
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
-		Optional<Curso> postagem = postagemRepository.findById(id);
+		Optional<Curso> curso = cursoRepository.findById(id);
 
-		if (postagem.isEmpty()) {
+		if (curso.isEmpty()) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 		}
 
-		postagemRepository.deleteById(id);
+		cursoRepository.deleteById(id);
 	}
 }
