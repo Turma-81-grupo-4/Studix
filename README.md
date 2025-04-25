@@ -21,16 +21,16 @@ Fazer o controle dos dados da plataforma de forma correta e conseguir acessar os
 # 👥 INTEGRANTES 
  
 **Desenvolvedores:**
-- [Beatriz Kailane](github.com/BeaKaylanee)
-- [Camille Tarine](github.com/CahTarine)
-- [Carlos Henrique da Silva Barbosa](github.com/Henrykeeh)
-- [Rosana Ferreira](github.com/lelesrosana)
+- [Beatriz Kailane](https://github.com/BeaKaylanee)
+- [Camille Tarine](https://github.com/CahTarine)
+- [Carlos Henrique da Silva Barbosa](https://github.com/Henrykeeh)
+- [Rosana Ferreira](https://github.com/lelesrosana)
 
 **Product Owner:**
-- [Guilherme Dino](github.com/meDinoo)
+- [Guilherme Dino](https://github.com/meDinoo)
 
 **Tester:**
-- [Henrique Machado](github.com/scottineo)
+- [Henrique Machado](https://github.com/scottineo)
 
 
 ## Link
