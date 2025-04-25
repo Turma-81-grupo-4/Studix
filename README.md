@@ -4,6 +4,8 @@ Projeto desenvolvido para conclusao do Desafio 2 no preojeto integrador pelo gru
 # Introdução
 O projeto visa organizar o sistema de uma escola de cursos, utilizando banco de dados relacionais e metodos CROUD.
 
+![Badge](https://img.shields.io/badge/status-active-brightgreen)
+
 
 # Objetivo
 Fazer o controle dos dados da para a plataforma de forma correta e conseguir acessar os dados conforme sua permissão como usuário. 
