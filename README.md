@@ -2,7 +2,7 @@
 Projeto desenvolvido para conclusao do Desafio 2 no preojeto integrador pelo grupo 4.
 
 # Introdução
-O projeto visa organizar o sistema de uma escola de cursos, utilizando banco de dados relacionais e metodos CROUD.
+O projeto visa organizar o sistema de uma escola de cursos, utilizando banco de dados relacionais e metodos CRUD.
 
 
 # 🎯  Objetivo
