@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.generation.blogpessoal.model.Curso;
+import com.generation.blogpessoal.model.UsuarioLogin;
 import com.generation.blogpessoal.repository.CursoRepository;
+import com.generation.blogpessoal.service.CursoService;
 import com.generation.blogpessoal.repository.CategoriaRepository;
 
 import jakarta.validation.Valid;
@@ -35,20 +37,49 @@ public class CursoController {
 	@Autowired
 	private CategoriaRepository categoriaRepository;
 
+	@Autowired
+	private CursoService cursoService;
+
+	private UsuarioLogin usuarioLogin;
+           
 	@GetMapping
 	public ResponseEntity<List<Curso>> getAll() {
-		return ResponseEntity.ok(cursoRepository.findAll());
+
+		List<Curso> cursos = cursoRepository.findAll();
+
+		for (Curso curso : cursos) {
+			cursoService.VerificarDisponibilidade(curso, usuarioLogin);
+		}
+		return ResponseEntity.ok(cursos);
+
 	}
 
 	@GetMapping("/{id}")
 	public ResponseEntity<Curso> getById(@PathVariable Long id) {
-		return cursoRepository.findById(id).map(resposta -> ResponseEntity.ok(resposta))
-				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+
+		Optional<Curso> cursoOptional = cursoRepository.findById(id);
+
+		if (cursoOptional.isPresent()) {
+			Curso curso = cursoOptional.get();
+			cursoService.VerificarDisponibilidade(curso, usuarioLogin);
+			return ResponseEntity.ok(curso);
+		} else {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
+
 	}
 
 	@GetMapping("/titulo/{titulo}")
 	public ResponseEntity<List<Curso>> getByTitulo(@PathVariable String titulo) {
-		return ResponseEntity.ok(cursoRepository.findAllByTituloContainingIgnoreCase(titulo));
+
+
+		List<Curso> cursos = cursoRepository.findAllByTituloContainingIgnoreCase(titulo);
+
+		for (Curso curso : cursos) {
+			cursoService.VerificarDisponibilidade(curso, usuarioLogin);
+		}
+		return ResponseEntity.ok(cursos);
+
 	}
 
 	@PostMapping
