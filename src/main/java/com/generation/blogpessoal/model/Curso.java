@@ -2,8 +2,6 @@ package com.generation.blogpessoal.model;
 
 import java.time.LocalDate;
 
-import org.hibernate.annotations.UpdateTimestamp;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
@@ -36,7 +34,7 @@ public class Curso {
 	@Size(min = 10, max = 1000)
 	private String descricao;
 
-	@UpdateTimestamp
+	@NotNull
 	private LocalDate data;
 
 	private boolean disponibilidade = true;
