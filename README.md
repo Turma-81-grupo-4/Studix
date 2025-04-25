@@ -34,4 +34,4 @@ Fazer o controle dos dados da plataforma de forma correta e conseguir acessar os
 
 
 ## Link
-*Documento:*
+*Documento:* [Escopo projeto](https://docs.google.com/document/d/11joEl_wFgnJrq7l5-i9XRADNRNGSJDWxrj1hSJP2yus/edit?usp=sharing)
