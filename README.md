@@ -19,18 +19,18 @@ Fazer o controle dos dados da plataforma de forma correta e conseguir acessar os
 
 
 # 👥 INTEGRANTES 
-
+ 
 **Desenvolvedores:**
-- Beatriz Kailane
-- Camille Tarine
-- Carlos Henrique da Silva Barbosa
-- Rosana Ferreira
+- [Beatriz Kailane](github.com/BeaKaylanee)
+- [Camille Tarine](github.com/CahTarine)
+- [Carlos Henrique da Silva Barbosa](github.com/Henrykeeh)
+- [Rosana Ferreira](github.com/lelesrosana)
 
 **Product Owner:**
-- Guilherme Dino
+- [Guilherme Dino](github.com/meDinoo)
 
 **Tester:**
-- Henrique Machado
+- [Henrique Machado](github.com/scottineo)
 
 
 ## Link
