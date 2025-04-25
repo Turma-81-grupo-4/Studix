@@ -6,7 +6,7 @@ O projeto visa organizar o sistema de uma escola de cursos, utilizando banco de 
 
 
 # 🎯  Objetivo
-Fazer o controle dos dados da para a plataforma de forma correta e conseguir acessar os dados conforme sua permissão como usuário. 
+Fazer o controle dos dados da plataforma de forma correta e conseguir acessar os dados conforme sua permissão como usuário. 
 
  # 💻 Tecnologias 
 * Java;
