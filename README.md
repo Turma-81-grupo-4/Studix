@@ -5,11 +5,10 @@ Projeto desenvolvido para conclusao do Desafio 2 no preojeto integrador pelo gru
 O projeto visa organizar o sistema de uma escola de cursos, utilizando banco de dados relacionais e metodos CROUD.
 
 
-![Objetivo do Projeto](https://cdn-icons-png.flaticon.com/512/4185/4185501.png)
-# Objetivo
+# 🎯  Objetivo
 Fazer o controle dos dados da para a plataforma de forma correta e conseguir acessar os dados conforme sua permissão como usuário. 
 
-# Tecnologias 
+ # 💻 Tecnologias 
 * Java;
 * Spring Tools Suite;
 * Insomnia;
@@ -19,7 +18,7 @@ Fazer o controle dos dados da para a plataforma de forma correta e conseguir ace
 * Discord;
 
 
-# INTEGRANTES 
+# 👥 INTEGRANTES 
 
 **Desenvolvedores:**
 - Beatriz Kailane
