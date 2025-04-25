@@ -44,16 +44,19 @@ public class CursoController {
            
 	@GetMapping
 	public ResponseEntity<List<Curso>> getAll() {
+
 		List<Curso> cursos = cursoRepository.findAll();
 
 		for (Curso curso : cursos) {
 			cursoService.VerificarDisponibilidade(curso, usuarioLogin);
 		}
 		return ResponseEntity.ok(cursos);
+
 	}
 
 	@GetMapping("/{id}")
 	public ResponseEntity<Curso> getById(@PathVariable Long id) {
+
 		Optional<Curso> cursoOptional = cursoRepository.findById(id);
 
 		if (cursoOptional.isPresent()) {
@@ -63,10 +66,12 @@ public class CursoController {
 		} else {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
+
 	}
 
 	@GetMapping("/titulo/{titulo}")
 	public ResponseEntity<List<Curso>> getByTitulo(@PathVariable String titulo) {
+
 
 		List<Curso> cursos = cursoRepository.findAllByTituloContainingIgnoreCase(titulo);
 
@@ -74,6 +79,7 @@ public class CursoController {
 			cursoService.VerificarDisponibilidade(curso, usuarioLogin);
 		}
 		return ResponseEntity.ok(cursos);
+
 	}
 
 	@PostMapping
