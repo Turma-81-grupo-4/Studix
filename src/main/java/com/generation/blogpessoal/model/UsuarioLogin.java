@@ -1,5 +1,9 @@
 package com.generation.blogpessoal.model;
 
+import java.time.LocalDate;
+
+import org.hibernate.annotations.UpdateTimestamp;
+
 public class UsuarioLogin {
 	
 	private Long id;
@@ -8,7 +12,9 @@ public class UsuarioLogin {
 	private String senha;
 	private String foto;
 	private String token;
-	private String funcao;
+	private String funcao;	
+	@UpdateTimestamp
+	private LocalDate data;
 
 	public Long getId() {
 		return this.id;
@@ -64,6 +70,14 @@ public class UsuarioLogin {
 
 	public void setFuncao(String funcao) {
 		this.funcao = funcao;
+	}
+
+	public LocalDate getData() {
+		return data;
+	}
+
+	public void setData(LocalDate data) {
+		this.data = data;
 	}
 	
 	

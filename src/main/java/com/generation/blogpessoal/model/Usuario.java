@@ -1,5 +1,6 @@
 package com.generation.blogpessoal.model;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -43,9 +44,11 @@ public class Usuario {
 	@Size(min = 5, message = "É necessário uma função")
 	private String funcao;
 
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Curso> postagem;
+
 
 	/* Getters and Setters */
 
