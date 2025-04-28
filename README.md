@@ -17,6 +17,8 @@ Fazer o controle dos dados da plataforma de forma correta e conseguir acessar os
 * SQL;
 * Discord;
 
+## DER (Diagrama Entidade-Relacionamento)
+![imagem DER](DER.png) 
 
 # 👥 INTEGRANTES 
  
